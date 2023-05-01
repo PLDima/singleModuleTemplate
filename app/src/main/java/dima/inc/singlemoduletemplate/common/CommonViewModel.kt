@@ -1,10 +1,11 @@
 package dima.inc.singlemoduletemplate.common
 
+import androidx.lifecycle.ViewModel
 import dima.inc.stardartarchitecture.ui.main.common.utils.RequestResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class CommonViewModel {
+abstract class CommonViewModel: ViewModel() {
 
     private val internalStateHolderFlow = MutableStateFlow<RequestResult<*>>(RequestResult.Success(Unit))
 
