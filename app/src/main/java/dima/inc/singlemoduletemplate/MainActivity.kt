@@ -1,6 +1,5 @@
 package dima.inc.singlemoduletemplate
 
-import dima.inc.singlemoduletemplate.common.CommonActivity
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : CommonActivity(R.layout.activity_main) {
-}
+class MainActivity : AppCompatActivity()
