@@ -1,3 +1,0 @@
-package dima.inc.singlemoduletemplate.domain.repo
-
-interface ArticlesRepository

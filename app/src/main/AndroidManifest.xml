@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".app.App"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SingleModuleTemplate"
-        tools:targetApi="31">
+        android:theme="@style/AppTheme"
+        tools:targetApi="31"
+        tools:ignore="MissingApplicationIcon">
         <activity
-            android:name=".content.MainActivity"
+            android:name=".content.popular_screen.MainActivity"
+            android:theme="@style/Search"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
