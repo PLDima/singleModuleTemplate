@@ -1,18 +1,18 @@
 package dima.inc.singlemoduletemplate.content.popular_screen
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dima.inc.singlemoduletemplate.R
 import dima.inc.singlemoduletemplate.common.model.Result
+import dima.inc.singlemoduletemplate.common.views.ProgressDialog
+import dima.inc.singlemoduletemplate.content.details_screen.VideoDetailsActivity
 import dima.inc.singlemoduletemplate.content.popular_screen.adapters.SearchListAdapter
 import dima.inc.singlemoduletemplate.data.models.Video
 import dima.inc.singlemoduletemplate.databinding.ActivityMainBinding
@@ -21,19 +21,13 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val viewModelViewModel: MainActivityViewModelImpl by viewModels()
+    private val viewModelViewModel: MainActivityViewModel by viewModels<MainActivityViewModelImpl>()
     private var savedQuery: String? = null
     private lateinit var searchListAdapter: SearchListAdapter
 
     private lateinit var binding: ActivityMainBinding
 
-    private val progressDialog: AlertDialog by lazy {
-        AlertDialog.Builder(this)
-            .setView(R.layout.dialog_loading)
-            .setCancelable(false)
-            .create()
-            .apply { window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) }
-    }
+    private val progressDialog = ProgressDialog(baseContext)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     else -> {
-                        progressDialog.dismiss()
+                        progressDialog.hide()
                     }
                 }
             }
@@ -93,7 +87,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onItemClick(video: Video) {
-        //Add realisation later
+        startActivity(
+            Intent(baseContext, VideoDetailsActivity::class.java).run {
+                putExtra("video", video)
+            }
+        )
     }
 
     private fun showVideoList(videoList: List<Video>) {

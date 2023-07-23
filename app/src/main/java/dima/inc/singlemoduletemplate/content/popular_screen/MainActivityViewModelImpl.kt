@@ -16,15 +16,15 @@ class MainActivityViewModelImpl @Inject constructor(
 
     override val videoList = MutableStateFlow<List<Video>>(emptyList())
 
-    fun loadVideoList() {
+    override fun loadVideoList() {
         viewModelScope.launch {
             videoList.value = getPopularVideoUseCase()
         }
     }
 
-    fun searchVideoByName(query: String) {
+    override fun searchVideoByName(query: String) {
         // TODO add implementation for search
     }
 
-    val requestStateHolder = RequestStateHolder()
+    override val requestStateHolder = RequestStateHolder()
 }

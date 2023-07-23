@@ -1,0 +1,10 @@
+package dima.inc.singlemoduletemplate.di.modules
+
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dima.inc.singlemoduletemplate.content.details_screen.VideoDetailsViewModel
+import dima.inc.singlemoduletemplate.content.details_screen.VideoDetailsViewModelImpl
+import dima.inc.singlemoduletemplate.content.popular_screen.MainActivityViewModel
+import dima.inc.singlemoduletemplate.content.popular_screen.MainActivityViewModelImpl

@@ -1,4 +1,4 @@
-package dima.inc.singlemoduletemplate.content.popular_screen.adapters
+package dima.inc.singlemoduletemplate.content.details_screen.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dima.inc.singlemoduletemplate.R
-import dima.inc.singlemoduletemplate.content.details_screen.adapters.RelatedListCallback
 import dima.inc.singlemoduletemplate.data.models.Video
 import dima.inc.singlemoduletemplate.databinding.VideoListItemBinding
 
-class SearchListAdapter(private val onClickListener: (Video) -> Unit) :
-    ListAdapter<Video, SearchListAdapter.ViewHolder>(RelatedListCallback) {
+class RelatedListAdapter(private val onClickListener: (Video) -> Unit) :
+    ListAdapter<Video, RelatedListAdapter.ViewHolder>(RelatedListCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
