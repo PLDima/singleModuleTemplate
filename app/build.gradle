@@ -23,10 +23,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://www.google.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://instances.social/api/1.0/instances/\"")
+            buildConfigField("String", "API_TOKEN", "\"jjIhD6hZqsI84aDzZ5maiauD1SYUOxHeMshjAwlqjXMFQvEEz4gXi1zjO2z8ylsatPtrazT9FuqiddZk2FN30xlSAriXG2M0ZWCekGo4DuZ1TICEggiLmXvPSEhmb2yj\"")
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://www.google.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://instances.social/api/1.0/instances/\"")
+            buildConfigField("String", "API_TOKEN", "\"jjIhD6hZqsI84aDzZ5maiauD1SYUOxHeMshjAwlqjXMFQvEEz4gXi1zjO2z8ylsatPtrazT9FuqiddZk2FN30xlSAriXG2M0ZWCekGo4DuZ1TICEggiLmXvPSEhmb2yj\"")
         }
     }
 
@@ -57,6 +59,14 @@ dependencies {
     implementation 'com.squareup.moshi:moshi-adapters:1.14.0'
     implementation 'com.squareup.moshi:moshi-kotlin-codegen:1.14.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.14.0'
+
+    implementation 'androidx.activity:activity-compose:1.7.2'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+
     kapt 'com.google.dagger:hilt-android-compiler:2.44'
 }
 

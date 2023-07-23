@@ -5,12 +5,12 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dima.inc.singlemoduletemplate.data.repo.RepositoryImpl
-import dima.inc.singlemoduletemplate.domain.repo.ArticlesRepository
+import dima.inc.singlemoduletemplate.domain.repo.MastodonRepository
 
 @Module
 @InstallIn(ViewModelComponent::class)
 internal interface RepositoryModule {
 
     @Binds
-    fun bindRepository(repositoryImpl: RepositoryImpl): ArticlesRepository
+    fun bindRepository(repositoryImpl: RepositoryImpl): MastodonRepository
 }

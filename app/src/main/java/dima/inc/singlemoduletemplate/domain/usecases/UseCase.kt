@@ -1,3 +1,5 @@
 package dima.inc.singlemoduletemplate.domain.usecases
 
-interface UseCase
+interface UseCase{
+    suspend operator fun invoke()
+}
