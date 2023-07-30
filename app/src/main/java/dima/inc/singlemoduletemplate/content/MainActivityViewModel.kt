@@ -12,11 +12,12 @@ import javax.inject.Inject
 class MainActivityViewModel @Inject constructor(
     private val useCase: UseCase
 ) : ViewModel() {
+
     val requestStateHolder = RequestStateHolder()
 
     fun getInstance(){
         viewModelScope.launch {
-            useCase.getInstances()
+            useCase()
         }
     }
 }
