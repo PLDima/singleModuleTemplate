@@ -1,54 +1,53 @@
 package dima.inc.singlemoduletemplate.domain.models
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
+
 data class Instance(
-    @Json(name = "id")
+    @SerializedName("id")
     val id: String,
-    @Json(name = "name")
+    @SerializedName("name")
     val name: String,
-    @Json(name = "added_at")
+    @SerializedName("added_at")
     val foundedDate: String,
-    @Json(name = "updated_at")
+    @SerializedName("updated_at")
     val lastUpdateTime: String,
-    @Json(name = "checked_at")
+    @SerializedName("checked_at")
     val lastCheckDate: String,
-    @Json(name = "uptime")
+    @SerializedName("uptime")
     val uptime: Int,
-    @Json(name = "up")
+    @SerializedName("up")
     val up: Boolean,
-    @Json(name = "dead")
+    @SerializedName("dead")
     val isDead: Boolean,
-    @Json(name = "version")
+    @SerializedName("version")
     val version: String,
-    @Json(name = "ipv6")
+    @SerializedName("ipv6")
     val ipv6: Boolean,
-    @Json(name = "https_scope")
+    @SerializedName("https_scope")
     val httpsScope: Int,
-    @Json(name = "https_rank")
+    @SerializedName("https_rank")
     val httpsRank: String,
-    @Json(name = "obs_score")
+    @SerializedName("obs_score")
     val ObsScore: String,
-    @Json(name = "users")
+    @SerializedName("users")
     val users: Int,
-    @Json(name = "statuses")
+    @SerializedName("statuses")
     val statuses: Int,
-    @Json(name = "connections")
+    @SerializedName("connections")
     val connections: Int,
-    @Json(name = "open_registrations")
+    @SerializedName("open_registrations")
     val isRegistrationOpen: Boolean,
-    @Json(name = "info")
+    @SerializedName("info")
     val info: MastadonDescription,
-    @Json(name = "thumbnail")
+    @SerializedName("thumbnail")
     val imageUrl: String,
-    @Json(name = "thumbnail_proxy")
+    @SerializedName("thumbnail_proxy")
     val imageUrlProxy: String,
-    @Json(name = "active_users")
+    @SerializedName("active_users")
     val activeUsers: Int,
-    @Json(name = "email")
+    @SerializedName("email")
     val email: String,
-    @Json(name = "admin")
+    @SerializedName("admin")
     val adminName: String,
 )

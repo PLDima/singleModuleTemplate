@@ -1,18 +1,15 @@
 package dima.inc.singlemoduletemplate.di.modules
 
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dima.inc.singlemoduletemplate.BuildConfig
-import dima.inc.singlemoduletemplate.common.utils.MoshiArrayListJsonAdapter
 import dima.inc.singlemoduletemplate.data.api.Api
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,14 +26,7 @@ class NetworkModule {
                     }
                 ).build()
             )
-            .addConverterFactory(
-                MoshiConverterFactory.create(
-//                    Moshi.Builder()
-                    //                      .add(MoshiArrayListJsonAdapter.FACTORY)
-                    //  .add(KotlinJsonAdapterFactory())
-                    //  .build()
-                ).asLenient()
-            )
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Api::class.java)
 }
